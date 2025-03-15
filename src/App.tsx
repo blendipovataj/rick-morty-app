@@ -46,6 +46,7 @@ const App: React.FC = () => {
   const [filters, setFilters] = useState({status: "", species: "", sort:""});
   const [page, setPage] = useState(1);
   const [characters, setCharacters] = useState<any[]>([]);
+  const [hasMore, setHasMore] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {t, i18n} = useTranslation();
 
