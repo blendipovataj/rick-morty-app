@@ -7,8 +7,14 @@ import {useForm} from "react-hook-form";
 import { useInView } from 'react-intersection-observer';
 import "./i18n";
 import { useTranslation } from 'react-i18next';
+// import InfiniteScroll from 'react-infinite-scroller';
 
-
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
 
@@ -134,13 +140,22 @@ const App: React.FC = () => {
 
   return (
     <div style={{padding: "70px", fontFamily:"Arial, sans-serif"}}>
-       <div style={{textAlign:"right", marginBottom:"10px"}}>
-        <label >{t("language")}</label>
-        <select onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}>
-          <option value="en">English</option>
-          <option value="de">Deutsch</option>
-        </select>
-       </div>
+       <Box sx={{ textAlign:"right", marginBottom:"20px", color:"white"}}>
+      <FormControl >
+        <InputLabel style={{color:"white", fontFamily:"Arial, sans-serif"}}> {t("language")}</InputLabel>
+        <Select 
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}
+          style={{color:" #61dafb", marginTop:"10px"}}
+        >
+          <MenuItem value={"en"}>English</MenuItem>
+          <MenuItem value={"de"}>Deutsch</MenuItem>
+      
+        </Select>
+      </FormControl>
+    </Box>
+       
        <h1>{t("title")}</h1> 
 
       <form onSubmit={handleSubmit(onSubmit)} style={{marginBottom:"25px"}}>
@@ -162,7 +177,7 @@ const App: React.FC = () => {
         <option value="origin">{t("Origin")}</option>
       </select>
 
-      <button type="submit">{t("apply")} </button>
+      <Button variant="contained" type="submit">{t("apply")} </Button>
       </form>
 
       <div className="characters-container" >
