@@ -7,7 +7,7 @@ import {useForm} from "react-hook-form";
 import { useInView } from 'react-intersection-observer';
 import "./i18n";
 import { useTranslation } from 'react-i18next';
-// import InfiniteScroll from 'react-infinite-scroller';
+import InfiniteScroll from 'react-infinite-scroller';
 
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -60,7 +60,7 @@ const App: React.FC = () => {
 
   const { ref, inView } = useInView({
     triggerOnce: false,
-    rootMargin: "100px",
+    rootMargin: "50px",
   });
 
 
